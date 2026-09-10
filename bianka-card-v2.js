@@ -28,7 +28,7 @@
       </div>
       <h3>${supplier.name}</h3>
       <button type="button" class="v2-category" data-v2-category="${supplier.category}">${supplier.category}</button>
-      <p class="v2-benefit-text">${supplier.benefit}</p>
+      <p class="v2-benefit-text">${supplier.description || supplier.benefit}</p>
       <span class="v2-benefit-pill">${supplier.benefit}</span>
       <div class="v2-actions">
         <a class="v2-whatsapp" href="${waUrl}" target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp de ${supplier.name}">WhatsApp</a>
