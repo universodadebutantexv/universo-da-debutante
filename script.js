@@ -1,5 +1,5 @@
 const savedSuppliers = [
-  ['Bianka Temperine','Assessoria e cerimonial','Tabela especial','@cerimonialistabiankatemperine','4.8','cerimonial assessoria festa organização','5521975116319'],
+  ['Assessora Bianka Temperine','Assessoria e cerimonial','Tabela especial','@cerimonialistabiankatemperine','4.8','cerimonial assessoria festa organização','5521975116319'],
   ['HM Produções','Atrações e animações','Tabela especial','@hmproducoes0','','banda música show animação','5521980622929'],
   ['Os Elétricos','Atrações e animações','Tabela especial','@oseletricos','','banda música show animação','5521977522460'],
   ['Mimos Brindes','Brindes personalizados','Tabela especial','@presentesmimos.mimos','','brindes personalizados','5511966932773'],
@@ -30,7 +30,7 @@ const savedSuppliers = [
 ];
 // A planilha é a fonte oficial. Esta lista é apenas a cópia segura usada enquanto ela carrega.
 savedSuppliers.splice(0, savedSuppliers.length,
-  ['Bianka Temperine','Assessoria e cerimonial','Tabela especial para Mães do Grupo','@cerimonialistabiankatemperine','','cerimonial assessoria','5521975116319'],
+  ['Assessora Bianka Temperine','Assessoria e cerimonial','Tabela especial para Mães do Grupo','@cerimonialistabiankatemperine','','cerimonial assessoria','5521975116319'],
   ['HM Produções','Atrações e animações','Tabela especial para Mães do Grupo','@hmproducoes0','','banda musica show','5521980622929'],
   ['Os Elétricos','Atrações e animações','Tabela especial para Mães do Grupo','@oseletricos','','banda personagens','5521977522460'],
   ['AV Digital','Convites Vituais','Tabela especial para Mães do Grupo','@avdigitalpersonalizada','','convites digitais','5521987388886'],
