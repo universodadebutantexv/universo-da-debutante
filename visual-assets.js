@@ -72,7 +72,7 @@
         seal.alt = 'Parceiro do Universo da Debutante';
         if (old) old.replaceWith(seal); else logo.append(seal);
       }
-      const isPink = name === 'assessora bianka temperine' || name === 'caroll cardozo';
+      const isPink = name === 'bianka temperine' || name === 'caroll cardozo';
       seal.classList.toggle('seal-pink', isPink);
       seal.classList.toggle('seal-white', !isPink);
       seal.src = isPink ? assets.sealPink : assets.sealWhite;

@@ -1,5 +1,5 @@
 const savedSuppliers = [
-  ['Assessora Bianka Temperine','Assessoria e cerimonial','Tabela especial','@cerimonialistabiankatemperine','4.8','cerimonial assessoria festa organização','5521975116319'],
+  ['Bianka Temperine','Assessoria e cerimonial','Tabela especial','@cerimonialistabiankatemperine','4.8','cerimonial assessoria festa organização','5521975116319'],
   ['HM Produções','Atrações e animações','Tabela especial','@hmproducoes0','','banda música show animação','5521980622929'],
   ['Os Elétricos','Atrações e animações','Tabela especial','@oseletricos','','banda música show animação','5521977522460'],
   ['Mimos Brindes','Brindes personalizados','Tabela especial','@presentesmimos.mimos','','brindes personalizados','5511966932773'],
@@ -30,7 +30,7 @@ const savedSuppliers = [
 ];
 // A planilha é a fonte oficial. Esta lista é apenas a cópia segura usada enquanto ela carrega.
 savedSuppliers.splice(0, savedSuppliers.length,
-  ['Assessora Bianka Temperine','Assessoria e cerimonial','Tabela especial para Mães do Grupo','@cerimonialistabiankatemperine','','cerimonial assessoria','5521975116319'],
+  ['Bianka Temperine','Assessoria e cerimonial','Tabela especial para Mães do Grupo','@cerimonialistabiankatemperine','','cerimonial assessoria','5521975116319'],
   ['HM Produções','Atrações e animações','Tabela especial para Mães do Grupo','@hmproducoes0','','banda musica show','5521980622929'],
   ['Os Elétricos','Atrações e animações','Tabela especial para Mães do Grupo','@oseletricos','','banda personagens','5521977522460'],
   ['AV Digital','Convites Vituais','Tabela especial para Mães do Grupo','@avdigitalpersonalizada','','convites digitais','5521987388886'],
@@ -117,11 +117,11 @@ document.querySelectorAll('a[href="#indicacoes"]').forEach(link=>{link.href='for
 refreshCategories();renderFilters();render();
 
 const SHEET_ID='1LhrxZICjaozp7elgQjzc4Vi2SzOGMh36GAfNRX_zr34';
-const sheetUrl=name=>`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(name)}&t=${Date.now()}`;
+const sheetUrl=name=>`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(name)}&headers=1&t=${Date.now()}`;
 async function readSheet(name){const response=await fetch(sheetUrl(name));if(!response.ok)throw new Error('Planilha indisponível');const raw=await response.text();const json=JSON.parse(raw.slice(raw.indexOf('{'),raw.lastIndexOf('}')+1));return(json.table.rows||[]).map(row=>(row.c||[]).map(cell=>cell?.f??cell?.v??''));}
 function setText(element,value){if(!value)return;const icon=element.querySelector('span');element.textContent=value;if(icon&&element.matches('.eyebrow'))element.prepend(icon);}
 function applyTexts(rows){
-  const content=Object.fromEntries(rows.slice(1).filter(row=>row[0]&&row[1]!==undefined).map(row=>[String(row[0]).trim(),String(row[1]) ]));
+  const content=Object.fromEntries(rows.filter(row=>row[0]&&row[1]!==undefined).map(row=>[String(row[0]).trim(),String(row[1]) ]));
   document.querySelectorAll('[data-text]').forEach(element=>setText(element,content[element.dataset.text]));
   document.querySelectorAll('[data-placeholder]').forEach(element=>{if(content[element.dataset.placeholder])element.placeholder=content[element.dataset.placeholder];});
   document.querySelectorAll('[data-link]').forEach(element=>{const value=content[element.dataset.link];if(value)element.href=value;});
@@ -141,8 +141,8 @@ function renderInstagram(profileUrl,widgetId){
 async function syncSiteContent(){
   try{
     const [supplierRows,textRows]=await Promise.all([readSheet('Fornecedores'),readSheet('Textos do site')]);
-    const updated=supplierRows.slice(1).filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||'')}));
-    const phones=supplierRows.slice(1).filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>String(row[5]||'').replace(/\D/g,''));
+    const updated=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||'')}));
+    const phones=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>String(row[5]||'').replace(/\D/g,''));
     // Mantém os fornecedores dos segmentos essenciais caso a planilha responda apenas uma parte da lista.
     ensureRequiredSegmentSuppliers(updated,phones);
     if(updated.length >= 20){suppliers=updated;whatsapp.splice(0,whatsapp.length,...phones);category='';refreshCategories();renderFilters();render();}
@@ -156,7 +156,7 @@ syncSiteContent();
 async function syncSuppliersFromSheet(){
   try{
     const supplierRows=await readSheet('Fornecedores');
-    const activeRows=supplierRows.slice(1).filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]);
+    const activeRows=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]);
     const updated=activeRows.map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||'')}));
     const phones=activeRows.map(row=>String(row[5]||'').replace(/\D/g,''));
     ensureRequiredSegmentSuppliers(updated,phones);
