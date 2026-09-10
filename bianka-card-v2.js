@@ -16,10 +16,9 @@
 
   function upgradeCard(card, supplier) {
     card.classList.add('card-v2');
-    const igHandle = String(supplier.handle || '').replace(/^@/, '');
-    const igUrl = igHandle ? `https://instagram.com/${igHandle}` : '';
-    const waUrl = supplier.phone ? `https://wa.me/${supplier.phone}` : '';
-    const mapsUrl = supplier.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(supplier.address)}` : '';
+    // Cada botão usa o link exatamente como está na planilha, sem montar nada aqui.
+    const igUrl = supplier.handle || '';
+    const waUrl = supplier.phone || '';
 
     card.innerHTML = `
       <div class="v2-logo-wrap">
@@ -35,7 +34,7 @@
         <div class="v2-icon-row">
           ${iconLink('instagram', igUrl, `Instagram de ${supplier.name}`)}
           ${iconLink('site', supplier.site, `Site de ${supplier.name}`)}
-          ${iconLink('address', mapsUrl, `Endereço de ${supplier.name}`)}
+          ${iconLink('address', supplier.address, `Endereço de ${supplier.name}`)}
           ${iconLink('gmb', supplier.gmb, `Google Meu Negócio de ${supplier.name}`)}
         </div>
       </div>

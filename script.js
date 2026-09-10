@@ -99,7 +99,7 @@ function render(){
   const result=suppliers.filter(s=>(!category||s.category===category)&&Object.values(s).join(' ').toLocaleLowerCase('pt-BR').includes(term));
   count.textContent=`${result.length} fornecedor${result.length===1?'':'es'} encontrado${result.length===1?'':'s'}`;
   grid.innerHTML=result.map(s=>{
-    const phone=s.phone||whatsapp[suppliers.indexOf(s)]||'';
+    const phone=String(s.phone||whatsapp[suppliers.indexOf(s)]||'').replace(/\D/g,'');
     return `<article class="supplier-card"><div class="supplier-top"><span class="category">${s.category}</span>${s.rating?`<span class="rating">★ ${s.rating}</span>`:''}</div><div class="supplier-logo" aria-label="Identidade de ${s.name}"><span>${initials(s.name)}</span><small>fornecedor parceiro</small><i class="supplier-seal">UD</i></div><h3>${s.name}</h3><p class="benefit"><b>Vantagem para você</b><span>${s.benefit}</span></p><div class="card-actions contact-art"><img src="assets/contact/instagram-whatsapp.png" alt="" aria-hidden="true"><a class="social-button instagram" aria-label="Abrir Instagram de ${s.name}" href="https://instagram.com/${String(s.handle||'').replace(/^@/,'')}" target="_blank" rel="noreferrer"></a><a class="social-button whatsapp" aria-label="Abrir WhatsApp de ${s.name}" href="https://wa.me/${phone}" target="_blank" rel="noreferrer"></a></div></article>`;
   }).join('');
   empty.hidden=!!result.length;
@@ -141,7 +141,7 @@ function renderInstagram(profileUrl,widgetId){
 async function syncSiteContent(){
   try{
     const [supplierRows,textRows]=await Promise.all([readSheet('Fornecedores'),readSheet('Textos do site')]);
-    const updated=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||''),site:String(row[9]||''),address:String(row[10]||''),gmb:String(row[11]||''),description:String(row[12]||'')}));
+    const updated=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||''),rating:String(row[6]||''),tags:String(row[8]||''),site:String(row[9]||''),address:String(row[10]||''),gmb:String(row[11]||''),description:String(row[12]||'')}));
     const phones=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>String(row[5]||'').replace(/\D/g,''));
     // Mantém os fornecedores dos segmentos essenciais caso a planilha responda apenas uma parte da lista.
     ensureRequiredSegmentSuppliers(updated,phones);
@@ -157,7 +157,7 @@ async function syncSuppliersFromSheet(){
   try{
     const supplierRows=await readSheet('Fornecedores');
     const activeRows=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]);
-    const updated=activeRows.map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||''),site:String(row[9]||''),address:String(row[10]||''),gmb:String(row[11]||''),description:String(row[12]||'')}));
+    const updated=activeRows.map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||''),rating:String(row[6]||''),tags:String(row[8]||''),site:String(row[9]||''),address:String(row[10]||''),gmb:String(row[11]||''),description:String(row[12]||'')}));
     const phones=activeRows.map(row=>String(row[5]||'').replace(/\D/g,''));
     ensureRequiredSegmentSuppliers(updated,phones);
     if(updated.length){
