@@ -141,7 +141,7 @@ function renderInstagram(profileUrl,widgetId){
 async function syncSiteContent(){
   try{
     const [supplierRows,textRows]=await Promise.all([readSheet('Fornecedores'),readSheet('Textos do site')]);
-    const updated=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||'')}));
+    const updated=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||''),site:String(row[9]||''),address:String(row[10]||''),gmb:String(row[11]||'')}));
     const phones=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]).map(row=>String(row[5]||'').replace(/\D/g,''));
     // Mantém os fornecedores dos segmentos essenciais caso a planilha responda apenas uma parte da lista.
     ensureRequiredSegmentSuppliers(updated,phones);
@@ -157,7 +157,7 @@ async function syncSuppliersFromSheet(){
   try{
     const supplierRows=await readSheet('Fornecedores');
     const activeRows=supplierRows.filter(row=>String(row[0]).trim().toLocaleLowerCase('pt-BR')==='sim'&&row[1]);
-    const updated=activeRows.map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||'')}));
+    const updated=activeRows.map(row=>({name:String(row[1]),category:String(row[2]||'Outros'),benefit:String(row[3]||'Vantagem exclusiva'),handle:String(row[4]||'@universodadebutante'),phone:String(row[5]||'').replace(/\D/g,''),rating:String(row[6]||''),tags:String(row[8]||''),site:String(row[9]||''),address:String(row[10]||''),gmb:String(row[11]||'')}));
     const phones=activeRows.map(row=>String(row[5]||'').replace(/\D/g,''));
     ensureRequiredSegmentSuppliers(updated,phones);
     if(updated.length){
