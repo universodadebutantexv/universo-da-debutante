@@ -2,7 +2,8 @@
 .brand-image img{display:block;width:100%;height:100%;object-fit:contain}
 .brand-image-footer{display:block;width:170px;height:50px}
 .brand-image-footer img{display:block;width:100%;height:100%;object-fit:contain}
-.access-brand{display:block;height:auto;width:min(100%,300px);margin:0 auto 30px}
+.access-brand-link{display:block;width:min(100%,300px);margin:0 auto 30px}
+.access-brand{display:block;height:auto;width:100%}
 @media(max-width:760px){
   .brand-image{width:165px;height:50px}
   .brand-image-footer{width:150px;height:44px}
