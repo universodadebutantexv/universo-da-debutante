@@ -9,16 +9,26 @@
     gmb: '<svg viewBox="0 0 24 24"><path d="M21.6 12.23c0-.74-.06-1.28-.2-1.84H12v3.33h5.5c-.11.9-.71 2.26-2.04 3.17l-.02.13 2.96 2.26.2.02c1.88-1.7 2.96-4.22 2.96-7.07Z"/><path d="M12 22c2.67 0 4.92-.86 6.56-2.34l-3.12-2.4c-.84.57-1.98.96-3.44.96-2.63 0-4.86-1.72-5.66-4.1l-.12.01-3.08 2.35-.04.11C4.14 19.86 7.79 22 12 22Z"/><path d="M6.34 14.12A5.9 5.9 0 0 1 6.02 12c0-.74.13-1.46.31-2.12L6.32 9.75 3.2 7.36l-.1.05A9.9 9.9 0 0 0 2 12c0 1.6.39 3.12 1.1 4.47l3.24-2.35Z"/><path d="M12 5.98c1.85 0 3.1.79 3.81 1.46l2.78-2.68C16.91 3.16 14.67 2 12 2 7.79 2 4.14 4.14 3.1 7.55l3.22 2.5c.8-2.38 3.03-4.07 5.68-4.07Z"/></svg>'
   };
 
+  // Garante que o link seja absoluto, sem alterar nada além de adicionar o
+  // protocolo quando faltar (ex: "google.com" vira "https://google.com").
+  function ensureUrl(value) {
+    const trimmed = String(value || '').trim();
+    if (!trimmed) return '';
+    if (/^([a-z][a-z0-9+.-]*:|\/\/)/i.test(trimmed)) return trimmed;
+    return `https://${trimmed}`;
+  }
+
   function iconLink(kind, href, label) {
-    if (!href) return '';
-    return `<a class="v2-icon v2-${kind}" href="${href}" target="_blank" rel="noreferrer" aria-label="${label}">${ICONS[kind]}</a>`;
+    const url = ensureUrl(href);
+    if (!url) return '';
+    return `<a class="v2-icon v2-${kind}" href="${url}" target="_blank" rel="noreferrer" aria-label="${label}">${ICONS[kind]}</a>`;
   }
 
   function upgradeCard(card, supplier) {
     card.classList.add('card-v2');
     // Cada botão usa o link exatamente como está na planilha, sem montar nada aqui.
-    const igUrl = supplier.handle || '';
-    const waUrl = supplier.phone || '';
+    const igUrl = ensureUrl(supplier.handle);
+    const waUrl = ensureUrl(supplier.phone);
 
     card.innerHTML = `
       <div class="v2-logo-wrap">
