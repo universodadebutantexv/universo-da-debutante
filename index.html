@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="O lugar para planejar, celebrar e viver seus 15 anos." />
+    <title>Universo da Debutante | Seus 15 do seu jeito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="cards.css" />
+    <link rel="stylesheet" href="logos.css" />
+    <link rel="stylesheet" href="card-refinement.css" />
+    <link rel="stylesheet" href="card-fix.css" />
+    <link rel="stylesheet" href="brand-logo.css" />
+    <link rel="stylesheet" href="hero-photo.css" />
+    <link rel="stylesheet" href="hero-photo-refinement.css" />
+    <link rel="stylesheet" href="hero-photo-blend.css" />
+    <link rel="stylesheet" href="supplier-seals.css?v=4" />
+    <link rel="stylesheet" href="enhancements.css?v=1" />
+    <link rel="stylesheet" href="modern.css?v=1" />
+    <link rel="stylesheet" href="access-gate.css?v=1" />
+    <link rel="stylesheet" href="mobile-fix.css?v=2" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand brand-image" href="#inicio" aria-label="Universo da Debutante - início"><img src="assets/brand/logo-universo-da-debutante.png" alt="Universo da Debutante" /></a>
+      <button class="menu-button" aria-label="Abrir menu" aria-expanded="false">☰</button>
+      <nav aria-label="Navegação principal">
+        <a href="#inicio">Início</a><a href="#inspiracoes">Inspirações</a><a class="active" href="#indicacoes">Indicações</a><a href="#comunidade">Comunidade</a>
+      </nav>
+      <a class="header-cta" href="#indicacoes">Encontrar fornecedor <span>→</span></a>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div class="hero-glow glow-one"></div><div class="hero-glow glow-two"></div>
+        <div class="hero-copy">
+          <p class="eyebrow" data-text="Selo acima do título"><span></span> seu momento começa aqui</p>
+          <h1><span data-text="Título principal">O Universo da Debutante</span> <em data-text="Destaque do título">Chegou para ajudar.</em></h1>
+          <p class="hero-text" data-text="Subtítulo">Ideias, conexões e fornecedores especiais para transformar a sua festa em uma história que só poderia ser sua.</p>
+          <div class="hero-actions"><a class="button button-light" href="#indicacoes" data-text="Botão principal">Explorar indicações <span>↓</span></a><a class="text-link" href="#como-funciona" data-text="Link secundário">Como funciona <span>→</span></a></div>
+        </div>
+        <div class="hero-photo" role="img" aria-label="Debutante em sua celebração de 15 anos"></div>
+      </section>
+
+      <section id="indicacoes" class="directory section">
+        <div class="section-heading"><p class="eyebrow pink" data-text="Selo indicações"><span></span> indicações especiais</p><h2 data-text="Título de indicações">Seu Dream Team começa aqui.</h2></div>
+        <p class="section-intro" data-text="Subtítulo de indicações">Uma curadoria feita com o carinho de quem sabe que cada detalhe importa no seu grande dia.</p>
+        <div class="directory-tools">
+          <label class="search"><span>⌕</span><input id="search" type="search" data-placeholder="Texto de busca" placeholder="Busque por serviço ou fornecedor" /></label>
+          <div class="filter-wrap"><button id="filterToggle" class="filter-button" type="button" aria-expanded="false">Filtrar <span>⌄</span></button><div id="filters" class="filters" aria-label="Filtros de categorias"></div></div>
+        </div>
+        <div class="results-bar"><span id="resultCount">0 fornecedores encontrados</span><button id="clearFilters" type="button">Limpar filtros</button></div>
+        <div id="supplierGrid" class="supplier-grid"></div>
+        <div id="emptyState" class="empty-state" hidden><span>♡</span><h3>Nenhum fornecedor por aqui</h3><p>Tente outra busca ou retire os filtros.</p></div>
+      </section>
+
+      <section id="como-funciona" class="how section-dark">
+        <div><p class="eyebrow" data-text="Selo como funciona"><span></span> simples assim</p><h2 data-text="Título como funciona">Para aproveitar cada momento.</h2></div>
+        <ol><li><b>01</b><div><h3 data-text="Passo 1 título">Descubra</h3><p data-text="Passo 1 texto">Explore ideias e profissionais que combinam com sua festa.</p></div></li><li><b>02</b><div><h3 data-text="Passo 2 título">Conecte-se</h3><p data-text="Passo 2 texto">Chame pelo Instagram, conheça o trabalho e peça seu orçamento.</p></div></li><li><b>03</b><div><h3 data-text="Passo 3 título">Realize</h3><p data-text="Passo 3 texto">Conte sua história em uma celebração feita para você brilhar.</p></div></li></ol>
+      </section>
+
+      <section id="inspiracoes" class="inspiration section"><p class="eyebrow pink" data-text="Selo inspirações"><span></span> inspiração de verdade</p><h2 data-text="Título inspirações">Da sua personalidade para a sua festa.</h2><p class="instagram-note" data-text="Texto inspirações">Acompanhe os últimos momentos que estão inspirando o nosso universo.</p><div id="instagramFeed" class="instagram-feed" aria-live="polite"></div><a class="instagram-follow" data-link="Instagram URL" href="https://instagram.com/universodadebutante" target="_blank" rel="noreferrer" data-text="Botão inspirações">Ver no Instagram →</a></section>
+
+      <section id="comunidade" class="community"><div><p class="eyebrow" data-text="Selo comunidade"><span></span> vem fazer parte</p><h2 data-text="Título comunidade">O seu sonho merece uma torcida inteira.</h2><p data-text="Texto comunidade">Entre no nosso grupo e acompanhe histórias, tendências e dicas para essa fase inesquecível.</p><a class="button button-light" data-link="Link do grupo" href="https://chat.whatsapp.com/KUmp4EJz16D79jWaVx7EZL" target="_blank" rel="noreferrer" data-text="Botão comunidade">Entrar no grupo <span>↗</span></a></div><div class="community-mark"><img src="assets/brand/ud-symbol.png" alt="UD" /></div></section>
+    </main>
+    <footer><a class="brand brand-image brand-image-footer" href="#inicio"><img src="assets/brand/logo-universo-da-debutante.png" alt="Universo da Debutante" /></a><p data-text="Texto rodapé">© 2026 Universo da Debutante. Feito para celebrar histórias únicas.</p><div class="footer-contact"><a data-link="Instagram URL" href="https://instagram.com/universodadebutante" target="_blank" rel="noreferrer">Instagram</a><a data-link="WhatsApp contato" href="#" target="_blank" rel="noreferrer">WhatsApp</a><a href="#inicio" data-text="Voltar ao topo">Voltar ao topo ↑</a></div></footer>
+    <script src="brand-fallback.js?v=1"></script>
+    <script src="instagram-assets.js?v=1"></script>
+    <script src="script.js?v=14"></script>
+    <script src="visual-assets.js?v=5"></script>
+  </body>
+</html>

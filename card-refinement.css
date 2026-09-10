@@ -1,0 +1,180 @@
+.supplier-card{border-radius:16px;overflow:hidden;border-color:#edd9e2;box-shadow:0 8px 22px #5c10310d}.supplier-card:hover{box-shadow:0 16px 35px #5c10311f}.supplier-logo{width:132px;height:132px;margin:20px auto 24px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#f751a8,#b0085f 55%,#5a062e);box-shadow:0 10px 20px #8b0d4d2b;overflow:visible}.supplier-logo:before{display:none}.supplier-logo span{font-size:42px;text-shadow:0 1px 0 #650332}.supplier-logo small{font:700 7px "DM Sans",sans-serif;letter-spacing:1.25px;opacity:.9}.supplier-seal{position:absolute;right:-5px;bottom:-3px;z-index:4;width:38px;height:38px;display:grid;place-items:center;border-radius:50%;border:3px solid #fff;background:#fff5f9;color:#a10851;font:700 11px "Playfair Display",serif;box-shadow:0 4px 10px #63043242}.supplier-card h3{font-size:26px}.benefit{display:flex;flex-direction:column;gap:4px;font-size:12px;line-height:1.45}.benefit b{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:#a30851}.benefit span{color:#755869}.card-actions{gap:10px;padding-top:16px}.social-button{min-height:42px;border-radius:9px;padding:9px 8px;background:#fff;border:1px solid #ebdce3;color:#5c2742;font-size:11px;box-shadow:none}.social-button span{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;font-size:0;background:#fbe6f0;color:#b20b5a}.social-button span::before{content:"";display:block;width:12px;height:12px;background:currentColor;mask-repeat:no-repeat;mask-position:center;mask-size:contain}.instagram span::before{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='3' width='18' height='18' rx='5' fill='none' stroke='black' stroke-width='2.3'/%3E%3Ccircle cx='12' cy='12' r='4' fill='none' stroke='black' stroke-width='2.3'/%3E%3Ccircle cx='17.5' cy='6.8' r='1.3' fill='black'/%3E%3C/svg%3E")}.social-button em{font-style:normal}.whatsapp{color:#176847}.whatsapp span{background:#e0f4e9;color:#168251}.whatsapp span::before{mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M20.5 3.5A11 11 0 0 0 3.2 16.7L2 22l5.5-1.4A11 11 0 1 0 20.5 3.5ZM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-3.2.8.8-3.1-.2-.3A8.1 8.1 0 1 1 12 20Zm4.4-5.8c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-1.4-.7-2.3-1.4-3.2-3.1-.2-.3.2-.3.6-1.1.1-.2 0-.4 0-.5l-.8-1.8c-.2-.4-.4-.3-.5-.3h-.5c-.2 0-.5.1-.7.4-.2.2-.9.9-.9 2.2s.9 2.6 1 2.8c.1.2 1.8 2.8 4.5 3.9 1.7.7 2.4.7 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3Z'/%3E%3C/svg%3E")}.social-button:hover{transform:translateY(-1px);filter:none;box-shadow:0 5px 12px #50102d12}
+.supplier-card .card-actions { gap: 10px; padding-top: 17px; }
+.supplier-card .social-button { align-items: center; border: 1px solid transparent; border-radius: 12px; font-size: 11px; font-weight: 700; gap: 8px; justify-content: center; letter-spacing: .01em; min-height: 46px; padding: 8px 10px; }
+.supplier-card .social-button span { border-radius: 8px; flex: 0 0 24px; height: 24px; width: 24px; }
+.supplier-card .social-button span::before { height: 15px; width: 15px; }
+.supplier-card .social-button.instagram { background: #fff5f9; border-color: #f1d7e4; color: #9d1456; }
+.supplier-card .social-button.instagram span { background: linear-gradient(135deg, #ff5a9d, #bd1264); color: #fff; box-shadow: 0 3px 8px rgba(190, 18, 98, .20); }
+.supplier-card .social-button.whatsapp { background: #f1fbf6; border-color: #d8eee3; color: #13754d; }
+.supplier-card .social-button.whatsapp span { background: #18a76a; color: #fff; box-shadow: 0 3px 8px rgba(22, 137, 82, .18); }
+.supplier-card .social-button:hover { box-shadow: 0 8px 16px rgba(77, 18, 50, .10); transform: translateY(-2px); }
+.supplier-card .social-button { gap: 7px; }
+.supplier-card .social-button span { background: transparent !important; border-radius: 0; display: block; flex: 0 0 18px; height: 18px; position: relative; width: 18px; }
+.supplier-card .social-button span::before { background-color: transparent; background-position: center; background-repeat: no-repeat; background-size: contain; height: 18px; mask-image: none !important; width: 18px; }
+.supplier-card .social-button.instagram span::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='3' y='3' width='18' height='18' rx='5' fill='%23c51a69'/%3E%3Ccircle cx='12' cy='12' r='4.1' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='17.2' cy='6.9' r='1.15' fill='white'/%3E%3C/svg%3E"); }
+.supplier-card .social-button.whatsapp span::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2317a765' d='M12 2a10 10 0 0 0-8.6 15.1L2.2 21.8l4.8-1.2A10 10 0 1 0 12 2Zm0 17.9a7.9 7.9 0 0 1-4-1.1l-.3-.2-2.8.7.7-2.7-.2-.3A7.9 7.9 0 1 1 12 19.9Zm4.6-5.7c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.2l-.8 1c-.1.2-.3.2-.5.1-1.6-.8-2.6-1.8-3.3-3.3-.1-.2 0-.4.1-.5l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.4-.4-.3-.6-.3h-.5c-.3 0-.6.1-.8.4-.2.3-1.1 1-1.1 2.5s1.1 3 1.2 3.2c.1.2 2.1 3.2 5 4.5 1.9.8 2.7.8 3.6.7.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.5-.3Z'/%3E%3C/svg%3E"); }
+.supplier-logo.has-photo { background: #5b3026; overflow: hidden; }
+.supplier-logo.has-photo > span, .supplier-logo.has-photo > small { display: none; }
+.supplier-logo .supplier-photo { height: 100%; inset: 0; object-fit: cover; object-position: center 26%; position: absolute; width: 100%; z-index: 1; }
+.supplier-logo.has-photo .supplier-seal { z-index: 5; }
+.supplier-card .card-actions { display: grid; grid-template-columns: 1fr; gap: 9px; }
+.supplier-card .social-button { border-radius: 13px; font-size: 12px; font-weight: 700; gap: 11px; justify-content: flex-start; letter-spacing: 0; min-height: 52px; padding: 10px 15px; }
+.supplier-card .social-button span { flex: 0 0 27px; height: 27px; width: 27px; }
+.supplier-card .social-button span::before { height: 27px; width: 27px; }
+.supplier-card .social-button.instagram { background: radial-gradient(circle at 20% 50%, rgba(242, 56, 147, .13), transparent 46%), linear-gradient(100deg, #fff7fb, #fff 76%); border-color: #f1a9cf; color: #ce196d; }
+.supplier-card .social-button.whatsapp { background: radial-gradient(circle at 20% 50%, rgba(18, 177, 105, .12), transparent 46%), linear-gradient(100deg, #f4fcf8, #fff 76%); border-color: #a9e0c6; color: #079253; }
+.supplier-card .social-button.instagram span, .supplier-card .social-button.whatsapp span { box-shadow: none; }
+.supplier-card .social-button.instagram span::before, .supplier-card .social-button.whatsapp span::before { background-size: 27px 27px; }
+.supplier-card .social-button:hover { box-shadow: 0 9px 18px rgba(93, 16, 55, .12); transform: translateY(-2px); }
+.supplier-logo.has-photo { overflow: visible; }
+.supplier-logo.has-photo .supplier-photo { border-radius: 50%; }
+.supplier-logo.has-supplier-logo .supplier-photo { object-position: center; }
+.supplier-logo.has-photo .supplier-seal { bottom: -7px; right: -7px; }
+
+/* Arte de contato enviada: mantém as duas metades como links independentes. */
+.supplier-card .contact-art {
+  position: relative;
+  display: block;
+  height: 64px;
+  margin-top: auto;
+  padding-top: 15px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+}
+.supplier-card .contact-art img {
+  display: block;
+  width: 100%;
+  height: 49px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+.supplier-card .contact-art .social-button {
+  position: absolute;
+  top: 15px;
+  height: 49px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.supplier-card .contact-art .instagram { left: 0; width: 50%; }
+.supplier-card .contact-art .whatsapp { right: 0; width: 50%; }
+.supplier-card .contact-art .social-button:hover { box-shadow: inset 0 0 0 2px rgba(92, 16, 49, .18); transform: none; }
+
+/* Botões de contato: versão compacta da arte aprovada */
+.supplier-card .card-actions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.supplier-card .social-button { border-radius: 11px; font-size: 10px; gap: 6px; justify-content: center; min-height: 44px; padding: 7px 6px; }
+.supplier-card .social-button span { flex-basis: 19px; height: 19px; width: 19px; }
+.supplier-card .social-button span::before { height: 19px; width: 19px; }
+.supplier-card .social-button.instagram { background: radial-gradient(circle at 15% 50%, rgba(220, 20, 110, .12), transparent 62%), linear-gradient(100deg, #fff6fb, #fff); border-color: #efb3d0; color: #cf176d; }
+.supplier-card .social-button.whatsapp { background: radial-gradient(circle at 15% 50%, rgba(9, 166, 91, .12), transparent 62%), linear-gradient(100deg, #f2fbf7, #fff); border-color: #b8e4ce; color: #079458; }
+.supplier-card .social-button.instagram span::before, .supplier-card .social-button.whatsapp span::before { background-size: 19px 19px; }
+
+/* A arte enviada é a aparência final; os links ficam somente como áreas clicáveis. */
+.supplier-card .contact-art .social-button,
+.supplier-card .contact-art .social-button.instagram,
+.supplier-card .contact-art .social-button.whatsapp {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  min-height: 49px !important;
+  padding: 0 !important;
+}
+.supplier-card .contact-art .social-button::before,
+.supplier-card .contact-art .social-button::after,
+.supplier-card .contact-art .social-button span { display: none !important; }
+.supplier-card .contact-art .social-button {
+  transition: background .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.supplier-card .contact-art .social-button:hover {
+  transform: translateY(-2px);
+}
+.supplier-card .contact-art .social-button.instagram:hover {
+  background: rgba(210, 21, 108, .12) !important;
+  box-shadow: inset 0 0 0 1px rgba(210, 21, 108, .34), 0 6px 13px rgba(154, 19, 76, .16) !important;
+}
+.supplier-card .contact-art .social-button.whatsapp:hover {
+  background: rgba(7, 146, 83, .12) !important;
+  box-shadow: inset 0 0 0 1px rgba(7, 146, 83, .34), 0 6px 13px rgba(14, 115, 69, .14) !important;
+}
+
+/* Movimento e brilho ao explorar o cartão inteiro. */
+.supplier-card {
+  transition: transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+  will-change: transform;
+}
+.supplier-card:hover {
+  border-color: #e87aaa;
+  box-shadow: 0 17px 33px rgba(105, 14, 59, .16);
+  transform: translateY(-5px);
+}
+
+/* Ao entrar no card, a arte dos dois contatos responde junto. */
+.supplier-card:hover {
+  border-color: #edd9e2;
+  box-shadow: 0 8px 22px #5c10310d;
+  transform: none;
+}
+.supplier-card .contact-art img {
+  transition: transform .22s ease;
+}
+.supplier-card:hover .contact-art img {
+  filter: none;
+  transform: none;
+}
+.supplier-card .contact-art:has(.instagram:hover) img {
+  transform: scale(1.055);
+  transform-origin: 25% 50%;
+}
+.supplier-card .contact-art:has(.whatsapp:hover) img {
+  transform: scale(1.055);
+  transform-origin: 75% 50%;
+}
+.supplier-card .contact-art .social-button:hover,
+.supplier-card .contact-art .social-button.instagram:hover,
+.supplier-card .contact-art .social-button.whatsapp:hover,
+.supplier-card .contact-art .social-button:focus {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  transform: none !important;
+}
+
+/* Cada metade da arte se torna um botão visual independente. */
+.supplier-card .contact-art.split-art { overflow: visible; }
+.supplier-card .contact-art.split-art img { display: none; }
+.supplier-card .contact-art.split-art .social-button {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  height: 49px !important;
+  min-height: 49px !important;
+  top: 15px !important;
+  width: 46% !important;
+  transform: none !important;
+  transition: transform .2s ease !important;
+}
+.supplier-card .contact-art.split-art .social-button.instagram {
+  left: 2% !important;
+  transform-origin: right center !important;
+}
+.supplier-card .contact-art.split-art .social-button.whatsapp {
+  right: 2% !important;
+  transform-origin: left center !important;
+}
+.supplier-card .contact-art.split-art .social-button.instagram:hover,
+.supplier-card .contact-art.split-art .social-button.whatsapp:hover {
+  box-shadow: none !important;
+  transform: scale(1.035) !important;
+  z-index: 3;
+}
+.supplier-card .contact-art.split-art .social-button .contact-piece {
+  display: block !important;
+  height: 49px !important;
+  object-fit: fill;
+  width: 100% !important;
+}

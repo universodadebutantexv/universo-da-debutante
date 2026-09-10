@@ -1,0 +1,48 @@
+/* O arquivo do Instagram define a proporção oficial: 800 × 267. */
+.supplier-card .contact-art.split-art {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+.supplier-card .contact-art.split-art > .social-button.instagram,
+.supplier-card .contact-art.split-art > .social-button.whatsapp {
+  aspect-ratio: 800 / 267 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  height: auto !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  position: relative !important;
+  top: auto !important;
+  transform: none !important;
+  width: 100% !important;
+}
+
+.supplier-card .contact-art.split-art > .social-button.instagram { left: auto !important; }
+.supplier-card .contact-art.split-art > .social-button.whatsapp { right: auto !important; }
+
+.supplier-card .contact-art.split-art > .social-button .contact-piece,
+.supplier-card .contact-art.split-art > .social-button .contact-label,
+.supplier-card .contact-art.split-art > .social-button::before,
+.supplier-card .contact-art.split-art > .social-button::after {
+  display: none !important;
+}
+
+.supplier-card .contact-art.split-art > .social-button .network-brand-button {
+  display: block !important;
+  height: 100% !important;
+  object-fit: fill !important;
+  width: 100% !important;
+}
+
+.supplier-card .contact-art.split-art > .social-button:hover {
+  filter: brightness(1.025) !important;
+  transform: translateY(-1px) !important;
+}
