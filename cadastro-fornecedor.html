@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="enhancements.css?v=1" />
     <link rel="stylesheet" href="modern.css?v=1" />
     <link rel="stylesheet" href="mobile-fix.css?v=2" />
-    <link rel="stylesheet" href="cadastro-fornecedor.css?v=2" />
+    <link rel="stylesheet" href="cadastro-fornecedor.css?v=3" />
   </head>
   <body class="cadastro-page-body">
     <header class="topbar">
@@ -54,27 +54,25 @@
           </div>
 
           <div class="field">
-            <label for="linkTipo">Links adicionais</label>
-            <select id="linkTipo" name="linkTipo">
-              <option value="" disabled selected>Selecione uma opção</option>
-              <option value="Site">Site</option>
-              <option value="Endereço">Endereço</option>
-              <option value="Google Meu Negócio">Google Meu Negócio</option>
-              <option value="TikTok">TikTok</option>
-              <option value="Facebook">Facebook</option>
-              <option value="Grupo do WhatsApp">Grupo do WhatsApp</option>
-              <option value="Outros">Outros</option>
-            </select>
-          </div>
-
-          <div class="field" id="linkOutrosField" hidden>
-            <label for="linkOutrosDescricao">O que é</label>
-            <input id="linkOutrosDescricao" name="linkOutrosDescricao" type="text" placeholder="Ex.: Cardápio digital" />
-          </div>
-
-          <div class="field" id="linkUrlField" hidden>
-            <label for="linkUrl">Link</label>
-            <input id="linkUrl" name="linkUrl" type="text" placeholder="Cole o link aqui" />
+            <label>Links adicionais</label>
+            <div id="linksContainer" class="links-container">
+              <div class="link-row" data-link-row>
+                <select class="linkTipo">
+                  <option value="" disabled selected>Selecione uma opção</option>
+                  <option value="Site">Site</option>
+                  <option value="Endereço">Endereço</option>
+                  <option value="Google Meu Negócio">Google Meu Negócio</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="Facebook">Facebook</option>
+                  <option value="Grupo do WhatsApp">Grupo do WhatsApp</option>
+                  <option value="Outros">Outros</option>
+                </select>
+                <input class="linkOutrosDescricao" type="text" placeholder="Ex.: Cardápio digital" hidden />
+                <input class="linkUrl" type="text" placeholder="Cole o link aqui" hidden />
+                <button type="button" class="removeLinkButton" hidden aria-label="Remover este link">✕</button>
+              </div>
+            </div>
+            <button type="button" id="addLinkButton" class="add-link-button">+ Adicionar outro link</button>
           </div>
 
           <div class="field">
@@ -93,6 +91,6 @@
     </main>
 
     <footer><a class="brand brand-image-footer" href="index.html#inicio"><img src="assets/brand/logo-dark.png" alt="Universo da Debutante" /></a><p>© 2026 Universo da Debutante. Feito para celebrar histórias únicas.</p></footer>
-    <script src="cadastro-fornecedor.js?v=2"></script>
+    <script src="cadastro-fornecedor.js?v=3"></script>
   </body>
 </html>

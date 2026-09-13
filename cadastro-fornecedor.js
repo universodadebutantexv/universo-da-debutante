@@ -1,15 +1,12 @@
 // Cole aqui a URL do seu Web App do Google Apps Script (veja instruções enviadas junto com este arquivo).
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxjr78MGOS__5WEWvQJ-AM_BcszpbLHvv-ass_nAT1OJlUHQcRombBxKTYEpACF8esnBw/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyY8GWHlfCc74lXfY33y3F790hHnijhkSZ07vovbcXZe26C0oQ0vQZEQWL44wWxv_TPwg/exec';
 
 const form = document.getElementById('cadastroForm');
 const descontoSelect = document.getElementById('desconto');
 const descontoOutroField = document.getElementById('descontoOutroField');
 const descontoOutroInput = document.getElementById('descontoOutro');
-const linkTipoSelect = document.getElementById('linkTipo');
-const linkOutrosField = document.getElementById('linkOutrosField');
-const linkOutrosInput = document.getElementById('linkOutrosDescricao');
-const linkUrlField = document.getElementById('linkUrlField');
-const linkUrlInput = document.getElementById('linkUrl');
+const linksContainer = document.getElementById('linksContainer');
+const addLinkButton = document.getElementById('addLinkButton');
 const descricaoField = document.getElementById('descricao');
 const charCount = document.getElementById('charCount');
 const submitButton = document.getElementById('submitButton');
@@ -23,14 +20,50 @@ descontoSelect.addEventListener('change', () => {
   if (!isOutro) descontoOutroInput.value = '';
 });
 
-linkTipoSelect.addEventListener('change', () => {
-  const hasTipo = Boolean(linkTipoSelect.value);
-  const isOutros = linkTipoSelect.value === 'Outros';
-  linkUrlField.hidden = !hasTipo;
-  linkUrlInput.required = hasTipo;
-  linkOutrosField.hidden = !isOutros;
-  linkOutrosInput.required = isOutros;
-  if (!isOutros) linkOutrosInput.value = '';
+function updateLinkRow(row) {
+  const tipoSelect = row.querySelector('.linkTipo');
+  const outrosInput = row.querySelector('.linkOutrosDescricao');
+  const urlInput = row.querySelector('.linkUrl');
+  const hasTipo = Boolean(tipoSelect.value);
+  const isOutros = tipoSelect.value === 'Outros';
+
+  urlInput.hidden = !hasTipo;
+  urlInput.required = hasTipo;
+  outrosInput.hidden = !isOutros;
+  outrosInput.required = isOutros;
+  if (!isOutros) outrosInput.value = '';
+}
+
+function updateRemoveButtons() {
+  const rows = linksContainer.querySelectorAll('[data-link-row]');
+  rows.forEach((row) => {
+    row.querySelector('.removeLinkButton').hidden = rows.length <= 1;
+  });
+}
+
+linksContainer.addEventListener('change', (event) => {
+  if (event.target.classList.contains('linkTipo')) {
+    updateLinkRow(event.target.closest('[data-link-row]'));
+  }
+});
+
+linksContainer.addEventListener('click', (event) => {
+  if (event.target.classList.contains('removeLinkButton')) {
+    event.target.closest('[data-link-row]').remove();
+    updateRemoveButtons();
+  }
+});
+
+addLinkButton.addEventListener('click', () => {
+  const firstRow = linksContainer.querySelector('[data-link-row]');
+  const newRow = firstRow.cloneNode(true);
+  newRow.querySelectorAll('select, input').forEach((field) => {
+    field.value = '';
+    if (field.tagName === 'SELECT') field.querySelector('option[value=""]').selected = true;
+  });
+  updateLinkRow(newRow);
+  linksContainer.appendChild(newRow);
+  updateRemoveButtons();
 });
 
 descricaoField.addEventListener('input', () => {
@@ -38,6 +71,23 @@ descricaoField.addEventListener('input', () => {
   charCount.textContent = length;
   charCount.parentElement.classList.toggle('limit-reached', length >= 140);
 });
+
+function collectLinks() {
+  const rows = linksContainer.querySelectorAll('[data-link-row]');
+  const links = [];
+  for (const row of rows) {
+    const tipoSelect = row.querySelector('.linkTipo');
+    const outrosInput = row.querySelector('.linkOutrosDescricao');
+    const urlInput = row.querySelector('.linkUrl');
+    if (!tipoSelect.value) continue;
+
+    const label = tipoSelect.value === 'Outros' ? outrosInput.value.trim() : tipoSelect.value;
+    const url = urlInput.value.trim();
+    if (!label || !url) return null;
+    links.push(`${label}: ${url}`);
+  }
+  return links.join(' | ');
+}
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
@@ -53,14 +103,18 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
-  const linkDescricao = linkTipoSelect.value === 'Outros' ? linkOutrosInput.value.trim() : linkTipoSelect.value;
+  const links = collectLinks();
+  if (links === null) {
+    feedback.textContent = 'Preencha o link ou remova a linha em branco antes de enviar.';
+    feedback.classList.add('error');
+    return;
+  }
 
   const payload = {
     nome: document.getElementById('nome').value.trim(),
     empresa: document.getElementById('empresa').value.trim(),
     desconto,
-    linkTipo: linkDescricao,
-    linkUrl: linkUrlInput.value.trim(),
+    links,
     descricao: descricaoField.value.trim(),
   };
 
@@ -84,8 +138,17 @@ form.addEventListener('submit', async (event) => {
     form.reset();
     charCount.textContent = '0';
     descontoOutroField.hidden = true;
-    linkOutrosField.hidden = true;
-    linkUrlField.hidden = true;
+
+    const rows = linksContainer.querySelectorAll('[data-link-row]');
+    rows.forEach((row, index) => {
+      if (index > 0) {
+        row.remove();
+      } else {
+        updateLinkRow(row);
+      }
+    });
+    updateRemoveButtons();
+
     feedback.textContent = 'Cadastro enviado com sucesso! Obrigada por fazer parte do Universo da Debutante.';
     feedback.classList.add('success');
   } catch (error) {
