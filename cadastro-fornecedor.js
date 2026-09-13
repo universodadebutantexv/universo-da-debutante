@@ -5,6 +5,11 @@ const form = document.getElementById('cadastroForm');
 const descontoSelect = document.getElementById('desconto');
 const descontoOutroField = document.getElementById('descontoOutroField');
 const descontoOutroInput = document.getElementById('descontoOutro');
+const linkTipoSelect = document.getElementById('linkTipo');
+const linkOutrosField = document.getElementById('linkOutrosField');
+const linkOutrosInput = document.getElementById('linkOutrosDescricao');
+const linkUrlField = document.getElementById('linkUrlField');
+const linkUrlInput = document.getElementById('linkUrl');
 const descricaoField = document.getElementById('descricao');
 const charCount = document.getElementById('charCount');
 const submitButton = document.getElementById('submitButton');
@@ -16,6 +21,16 @@ descontoSelect.addEventListener('change', () => {
   descontoOutroField.hidden = !isOutro;
   descontoOutroInput.required = isOutro;
   if (!isOutro) descontoOutroInput.value = '';
+});
+
+linkTipoSelect.addEventListener('change', () => {
+  const hasTipo = Boolean(linkTipoSelect.value);
+  const isOutros = linkTipoSelect.value === 'Outros';
+  linkUrlField.hidden = !hasTipo;
+  linkUrlInput.required = hasTipo;
+  linkOutrosField.hidden = !isOutros;
+  linkOutrosInput.required = isOutros;
+  if (!isOutros) linkOutrosInput.value = '';
 });
 
 descricaoField.addEventListener('input', () => {
@@ -38,10 +53,14 @@ form.addEventListener('submit', async (event) => {
     return;
   }
 
+  const linkDescricao = linkTipoSelect.value === 'Outros' ? linkOutrosInput.value.trim() : linkTipoSelect.value;
+
   const payload = {
     nome: document.getElementById('nome').value.trim(),
     empresa: document.getElementById('empresa').value.trim(),
     desconto,
+    linkTipo: linkDescricao,
+    linkUrl: linkUrlInput.value.trim(),
     descricao: descricaoField.value.trim(),
   };
 
@@ -65,6 +84,8 @@ form.addEventListener('submit', async (event) => {
     form.reset();
     charCount.textContent = '0';
     descontoOutroField.hidden = true;
+    linkOutrosField.hidden = true;
+    linkUrlField.hidden = true;
     feedback.textContent = 'Cadastro enviado com sucesso! Obrigada por fazer parte do Universo da Debutante.';
     feedback.classList.add('success');
   } catch (error) {
