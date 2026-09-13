@@ -1,5 +1,5 @@
 // Cole aqui a URL do seu Web App do Google Apps Script (veja instruções enviadas junto com este arquivo).
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyY8GWHlfCc74lXfY33y3F790hHnijhkSZ07vovbcXZe26C0oQ0vQZEQWL44wWxv_TPwg/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzppYfFRpuLElpk6yOyhg9Mi8f5XDyh3ZK3K1R-1NON1PDrK1ggMO21I1_I4o_3oyIc1A/exec';
 
 const form = document.getElementById('cadastroForm');
 const descontoSelect = document.getElementById('desconto');
