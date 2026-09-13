@@ -149,7 +149,7 @@ form.addEventListener('submit', async (event) => {
     });
     updateRemoveButtons();
 
-    feedback.textContent = 'Cadastro enviado com sucesso! Obrigada por fazer parte do Universo da Debutante.';
+    feedback.textContent = 'Cadastro enviado com sucesso! Obrigada por fazer parte do nosso Universo.';
     feedback.classList.add('success');
   } catch (error) {
     feedback.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
