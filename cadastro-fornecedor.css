@@ -1,13 +1,15 @@
 .cadastro-page-body .topbar{justify-content:center;padding:28px clamp(22px,8vw,130px)}
 .cadastro-page-body .topbar nav,.cadastro-page-body .topbar .header-cta,.cadastro-page-body .topbar .menu-button{display:none}
 
+body.cadastro-page-body{background:var(--blush)}
 .cadastro{max-width:640px;margin:0 auto}
 .cadastro .section-heading{display:block;text-align:center}
-.cadastro .eyebrow{justify-content:center}
+.cadastro .eyebrow{justify-content:center;color:var(--plum)}
 .cadastro h1{font-size:clamp(32px,5vw,48px)}
 .cadastro .section-intro{float:none;max-width:460px;margin:20px auto 48px;text-align:center}
 
 .cadastro-form{display:flex;flex-direction:column;gap:22px}
+.cadastro-form [hidden]{display:none!important}
 
 .field{display:flex;flex-direction:column;gap:8px}
 .field label{font-size:13px;font-weight:700;color:var(--ink)}
