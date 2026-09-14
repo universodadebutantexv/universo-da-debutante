@@ -77,6 +77,7 @@ let category='';
 let categories=[];
 
 const sortText=(a,b)=>String(a||'').localeCompare(String(b||''),'pt-BR',{sensitivity:'base'});
+const sameCategory=(a,b)=>String(a||'').trim().toLocaleLowerCase('pt-BR')===String(b||'').trim().toLocaleLowerCase('pt-BR');
 function sortSuppliers(){suppliers.sort((a,b)=>sortText(a.category,b.category)||sortText(a.name,b.name));}
 const requiredCategories=['Assessoria e cerimonial','Atrações e animações'];
 const requiredSegmentRows=savedSuppliers.filter(row=>requiredCategories.includes(row[1]));
@@ -88,8 +89,16 @@ function ensureRequiredSegmentSuppliers(updated,phones){
     phones.push(String(phone||'').replace(/\D/g,''));
   });
 }
-function refreshCategories(){sortSuppliers();categories=[...new Set([...suppliers.map(s=>s.category),...requiredCategories])].sort((a,b)=>sortText(a,b));}
-function renderFilters(){if(!filters)return;filters.innerHTML=`<button class="${!category?'selected':''}" data-category="">Todas</button>`+categories.map(c=>`<button class="${category===c?'selected':''}" data-category="${c}">${c}</button>`).join('');}
+function refreshCategories(){
+  sortSuppliers();
+  const seen=new Map();
+  [...suppliers.map(s=>s.category),...requiredCategories].forEach(c=>{
+    const key=String(c||'').trim().toLocaleLowerCase('pt-BR');
+    if(key&&!seen.has(key))seen.set(key,String(c).trim());
+  });
+  categories=[...seen.values()].sort((a,b)=>sortText(a,b));
+}
+function renderFilters(){if(!filters)return;filters.innerHTML=`<button class="${!category?'selected':''}" data-category="">Todas</button>`+categories.map(c=>`<button class="${sameCategory(category,c)?'selected':''}" data-category="${c}">${c}</button>`).join('');}
 function initials(name){return name.split(/\s+/).slice(0,2).map(word=>word[0]).join('').replace(/[^A-ZÀ-Ú]/gi,'').toUpperCase();}
 function closeFilters(){filters.classList.remove('open');filterToggle?.setAttribute('aria-expanded','false');}
 
@@ -112,7 +121,7 @@ function render(){
   if(!grid||!search||!count||!empty)return;
   sortSuppliers();
   const term=search.value.trim().toLocaleLowerCase('pt-BR');
-  const result=suppliers.filter(s=>(!category||s.category===category)&&Object.values(s).join(' ').toLocaleLowerCase('pt-BR').includes(term));
+  const result=suppliers.filter(s=>(!category||sameCategory(s.category,category))&&Object.values(s).join(' ').toLocaleLowerCase('pt-BR').includes(term));
   count.textContent=`${result.length} fornecedor${result.length===1?'':'es'} encontrado${result.length===1?'':'s'}`;
   grid.innerHTML=result.map(s=>{
     const phone=s.phone||whatsapp[suppliers.indexOf(s)]||'';
