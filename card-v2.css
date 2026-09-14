@@ -17,7 +17,6 @@
 .v2-icon svg{width:17px;height:17px;fill:none;stroke:currentColor}
 .v2-icon.v2-gmb svg{fill:currentColor;stroke:none}
 .v2-icon.v2-tiktok svg{fill:currentColor;stroke:none}
-.v2-icon.v2-whatsappGroup svg{fill:currentColor;stroke:none}
 .v2-icon:hover{transform:translateY(-3px) scale(1.12);box-shadow:0 10px 18px rgba(92,16,49,.24);background:#e91685;border-color:#e91685;color:#fff}
 @media(max-width:760px){
   .supplier-logo{width:120px!important;height:120px!important}
