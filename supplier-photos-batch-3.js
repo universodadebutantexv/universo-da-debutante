@@ -1,7 +1,9 @@
 (() => {
   const photos = {
     ingridfreitasbeauty: 'assets/suppliers/ingrid-freitas.jpg?v=3',
-    entrepapeis: 'assets/suppliers/entre-papeis.jpg?v=2'
+    entrepapeis: 'assets/suppliers/entre-papeis.jpg?v=2',
+    amoremamoraexperience: 'assets/suppliers/amor-em-aroma.jpg?v=1',
+    amoremaromaexperience: 'assets/suppliers/amor-em-aroma.jpg?v=1'
   };
 
   const normalize = (value) => String(value || '')
