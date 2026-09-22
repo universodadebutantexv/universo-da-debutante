@@ -4,8 +4,8 @@
     entrepapeis: 'assets/suppliers/entre-papeis.jpg?v=2',
     amoremamoraexperience: 'assets/suppliers/amor-em-aroma.jpg?v=1',
     amoremaromaexperience: 'assets/suppliers/amor-em-aroma.jpg?v=1',
-    movimentandohistorias: 'assets/suppliers/movimentando-historias.jpg?v=1',
-    movimentadohistorias: 'assets/suppliers/movimentando-historias.jpg?v=1'
+    movimentandohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2',
+    movimentadohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2'
   };
 
   const normalize = (value) => String(value || '')
