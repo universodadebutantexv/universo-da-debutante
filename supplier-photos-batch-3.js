@@ -5,7 +5,8 @@
     amoremamoraexperience: 'assets/suppliers/amor-em-aroma.jpg?v=1',
     amoremaromaexperience: 'assets/suppliers/amor-em-aroma.jpg?v=1',
     movimentandohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2',
-    movimentadohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2'
+    movimentadohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2',
+    fiauxinmotion: 'assets/suppliers/fiaux-in-motion.jpg?v=1'
   };
 
   const normalize = (value) => String(value || '')
