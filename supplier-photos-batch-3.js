@@ -7,7 +7,7 @@
     movimentandohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2',
     movimentadohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2',
     fiauxinmotion: 'assets/suppliers/fiaux-in-motion.jpg?v=1',
-    baurucas: 'assets/suppliers/baurucas.jpg?v=1'
+    baurucas: 'assets/suppliers/baurucas.jpg?v=2'
   };
 
   const normalize = (value) => String(value || '')
