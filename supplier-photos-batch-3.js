@@ -7,7 +7,12 @@
     movimentandohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2',
     movimentadohistorias: 'assets/suppliers/movimentando-historias.jpg?v=2',
     fiauxinmotion: 'assets/suppliers/fiaux-in-motion.jpg?v=1',
-    baurucas: 'assets/suppliers/baurucas.jpg?v=2'
+    baurucas: 'assets/suppliers/baurucas.jpg?v=2',
+    mabiellepatisserie: 'assets/suppliers/mabielle-patisserie.jpg?v=1',
+    candyexperiencieestacoes: 'assets/suppliers/candy-experience.jpg?v=1',
+    candyexperienceestacoes: 'assets/suppliers/candy-experience.jpg?v=1',
+    setapersonalizados: 'assets/suppliers/seta-bones.jpg?v=1',
+    setabones: 'assets/suppliers/seta-bones.jpg?v=1'
   };
 
   const normalize = (value) => String(value || '')
