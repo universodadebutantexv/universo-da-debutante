@@ -14,7 +14,8 @@
     setapersonalizados: 'assets/suppliers/seta-bones.jpg?v=1',
     setabones: 'assets/suppliers/seta-bones.jpg?v=1',
     jhcoreografias: 'assets/suppliers/jh-coreografias.jpg?v=1',
-    conesdoze: 'assets/suppliers/cones-do-ze.jpg?v=1'
+    conesdoze: 'assets/suppliers/cones-do-ze.jpg?v=1',
+    grupoart: 'assets/suppliers/grupo-art.jpg?v=1'
   };
 
   const normalize = (value) => String(value || '')
